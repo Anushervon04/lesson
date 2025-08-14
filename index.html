@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--light);
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+  background-color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--gray);
+}
+
+.topbar {
+  background-color: var(--primary-dark);
+  padding: 8px 0;
+  font-size: 0.85rem;
+}
+
+.topbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+}
+
+.social-links a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.social-links a:hover {
+  color: var(--accent);
+}
+
+.topbar-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.topbar-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 0.85rem;
+}
+
+.topbar-links a:hover {
+  color: var(--accent);
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+<header>
+  <div class="topbar">
+    <div class="container topbar-content">
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div class="topbar-links">
+        <a href="#"><i class="fas fa-phone-alt"></i> +992 93 123 4567</a>
+        <a href="#"><i class="fas fa-envelope"></i> info@dashtijum.tj</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="navbar">
+      <a href="#" class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Emblem_of_Tajikistan.svg/200px-Emblem_of_Tajikistan.svg.png" alt="Logo" class="logo-img">
+        <div class="logo-text">
+          Дашти Ҷум
+          <span class="logo-subtext">Мамнӯъгоҳи давлатӣ</span>
+        </div>
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="#" class="active">Асосӣ</a></li>
+        <li><a href="#">Дар бораи мо</a></li>
+        <li><a href="#">Флора ва фауна</a></li>
+        <li><a href="#">Саёҳат</a></li>
+        <li><a href="#">Таҳқиқот</a></li>
+        <li><a href="#">Тамос</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Banner -->
+<section class="hero-banner">
+  <div class="hero-image"></div>
+  <div class="hero-overlay"></div>
+  
+  <div class="container">
+    <div class="hero-content">
+      <h1>Мамнӯъгоҳи давлатии Дашти Ҷум</h1>
+      <p>Ҳифз ва нигоҳдории мероси табиии Тоҷикистон</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn">Ташриф овардан</a>
+        <a href="#" class="btn btn-outline">Маълумоти бештар</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
