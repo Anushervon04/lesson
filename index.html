@@ -1,1338 +1,159 @@
 <!DOCTYPE html>
-<html lang="tg">
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Мамнӯъгоҳи давлатии Дашти Ҷум - Ҷумҳурии Тоҷикистон</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --primary: #2e7d32;
-  --primary-dark: #1b5e20;
-  --primary-light: #4caf50;
-  --secondary: #8bc34a;
-  --accent: #ff9800;
-  --accent-dark: #e68a00;
-  --gold: #ffd700;
-  --silver: #c0c0c0;
-  --text: #212121;
-  --text-light: #757575;
-  --light: #f1f8e9;
-  --white: #ffffff;
-  --dark: #0d1f0f;
-  --overlay: rgba(0, 0, 0, 0.85);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.7;
-  color: var(--text);
-  background: linear-gradient(var(--overlay), var(--overlay)), 
-              url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Header Styles */
-header {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.85));
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.topbar {
-  background: linear-gradient(to right, var(--primary-dark), var(--primary));
-  padding: 10px 0;
-  font-size: 0.9rem;
-}
-
-.topbar-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.social-links {
-  display: flex;
-  gap: 8px;
-}
-
-.social-links a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-  color: white;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-}
-
-.social-links a:hover {
-  background: var(--accent);
-  transform: translateY(-3px) scale(1.1);
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
-}
-
-.topbar-links {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.topbar-links a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
-  position: relative;
-  padding: 5px 0;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.topbar-links a:hover {
-  color: var(--accent);
-}
-
-.topbar-links a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  transition: width 0.3s;
-}
-
-.topbar-links a:hover::after {
-  width: 100%;
-}
-
-/* Hero Banner */
-.hero-banner {
-  height: 90vh;
-  min-height: 700px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 70px;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 100%);
-  z-index: 1;
-}
-
-.hero-slider {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  transition: transform 1.2s cubic-bezier(0.33, 0, 0.2, 1);
-}
-
-.slide {
-  min-width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  color: white;
-  max-width: 900px;
-  padding: 0 30px;
-  animation: fadeInUp 1s ease-out;
-}
-
-.hero-content h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 4.2rem;
-  margin-bottom: 25px;
-  text-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
-  letter-spacing: 1.5px;
-  font-weight: 800;
-  line-height: 1.2;
-}
-
-.hero-content p {
-  font-size: 1.5rem;
-  margin-bottom: 40px;
-  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
-  font-weight: 300;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-  color: white;
-  padding: 16px 38px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.4s ease;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-size: 1rem;
-  gap: 10px;
-}
-
-.btn::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--accent-dark), var(--accent));
-  z-index: -1;
-  transition: transform 0.5s ease;
-  transform: translateX(-100%);
-}
-
-.btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
-}
-
-.btn:hover::after {
-  transform: translateX(0);
-}
-
-.btn-outline {
-  background: transparent;
-  border: 2px solid white;
-  backdrop-filter: blur(5px);
-}
-
-.btn-outline:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: white;
-}
-
-/* Navigation */
-nav {
-  background: linear-gradient(to right, rgba(43, 99, 47, 0.97), rgba(27, 94, 32, 0.97));
-  position: relative;
-}
-
-.navbar {
-  display: flex;
-  justify-content: center;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  flex-wrap: wrap;
-}
-
-.nav-links li {
-  position: relative;
-}
-
-.nav-links a {
-  display: flex;
-  align-items: center;
-  padding: 22px 28px;
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 1;
-  gap: 10px;
-  font-size: 1.05rem;
-}
-
-.nav-links a i {
-  transition: transform 0.3s;
-}
-
-.nav-links a:hover {
-  background: rgba(0, 0, 0, 0.2);
-  color: var(--gold);
-}
-
-.nav-links a:hover i {
-  transform: translateY(-4px);
-}
-
-.dropdown-menu {
-  position: absolute;
-  background: white;
-  min-width: 260px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(15px);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  z-index: 100;
-  border-radius: 10px;
-  overflow: hidden;
-  border-top: 3px solid var(--accent);
-}
-
-.nav-links li:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.dropdown-menu a {
-  color: var(--text);
-  padding: 16px 28px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  transition: all 0.3s;
-  display: flex;
-  align-items: center;
-  font-size: 1rem;
-}
-
-.dropdown-menu a i {
-  color: var(--primary);
-  margin-right: 12px;
-  font-size: 1rem;
-}
-
-.dropdown-menu a:hover {
-  background: var(--light);
-  color: var(--primary-dark);
-  padding-left: 32px;
-}
-
-/* Main Content */
-.main-content {
-  padding: 60px 0;
-}
-
-.section-title {
-  text-align: center;
-  color: white;
-  margin: 70px 0 60px;
-  font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-  position: relative;
-  font-weight: 700;
-}
-
-.section-title::after {
-  content: "";
-  display: block;
-  width: 120px;
-  height: 5px;
-  background: linear-gradient(to right, var(--accent), var(--gold));
-  margin: 20px auto;
-  border-radius: 3px;
-}
-
-/* About Section */
-.about {
-  background: rgba(255, 255, 255, 0.97);
-  border-radius: 15px;
-  overflow: hidden;
-  margin-bottom: 80px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.about-header {
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  color: white;
-  padding: 40px 30px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.about-header::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  transform: rotate(30deg);
-}
-
-.about-header h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
-  margin-bottom: 15px;
-  position: relative;
-  z-index: 1;
-}
-
-.about-header p {
-  font-size: 1.2rem;
-  max-width: 700px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-  opacity: 0.9;
-}
-
-.about-body {
-  padding: 50px;
-}
-
-.about-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  margin-bottom: 50px;
-}
-
-.about-text h3 {
-  color: var(--primary-dark);
-  margin-bottom: 25px;
-  font-size: 2rem;
-  position: relative;
-  padding-bottom: 15px;
-  font-weight: 700;
-}
-
-.about-text h3::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 70px;
-  height: 4px;
-  background: var(--accent);
-  border-radius: 2px;
-}
-
-.about-text p {
-  margin-bottom: 25px;
-  line-height: 1.8;
-  font-size: 1.1rem;
-}
-
-.about-image {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-  height: 380px;
-  position: relative;
-}
-
-.about-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s;
-}
-
-.about-image:hover img {
-  transform: scale(1.08);
-}
-
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 35px;
-  margin-bottom: 40px;
-}
-
-.feature-card {
-  background: var(--light);
-  border-radius: 12px;
-  padding: 35px 30px;
-  text-align: center;
-  transition: all 0.4s ease;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-}
-
-.feature-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  background: white;
-}
-
-.feature-icon {
-  font-size: 3.5rem;
-  color: var(--primary);
-  margin-bottom: 25px;
-  transition: transform 0.4s;
-}
-
-.feature-card:hover .feature-icon {
-  transform: scale(1.1);
-  color: var(--accent);
-}
-
-.feature-card h4 {
-  color: var(--primary-dark);
-  margin-bottom: 18px;
-  font-size: 1.6rem;
-  font-weight: 700;
-}
-
-.feature-card p {
-  font-size: 1.1rem;
-  color: var(--text-light);
-}
-
-/* Gallery Section */
-.gallery-section {
-  position: relative;
-  padding: 40px 0;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
-  margin-bottom: 60px;
-}
-
-.gallery-item {
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-  height: 320px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  transition: all 0.5s ease;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.7s ease;
-}
-
-.gallery-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 70%);
-  display: flex;
-  align-items: flex-end;
-  padding: 30px;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.gallery-item:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-}
-
-.gallery-item:hover img {
-  transform: scale(1.15);
-}
-
-.gallery-item:hover .gallery-overlay {
-  opacity: 1;
-}
-
-.gallery-info h3 {
-  color: white;
-  margin-bottom: 8px;
-  font-size: 1.5rem;
-}
-
-.gallery-info p {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 1rem;
-}
-
-/* Statistics Section */
-.stats {
-  background: linear-gradient(135deg, rgba(27, 94, 32, 0.92), rgba(43, 99, 47, 0.92));
-  padding: 90px 0;
-  margin: 80px 0;
-  position: relative;
-  overflow: hidden;
-  border-radius: 15px;
-}
-
-.stats::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80') center/cover;
-  opacity: 0.15;
-  z-index: 0;
-}
-
-.stats-content {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;
-  text-align: center;
-}
-
-.stat-item {
-  color: white;
-  padding: 25px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.4s ease;
-}
-
-.stat-item:hover {
-  transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-}
-
-.stat-item i {
-  font-size: 3.5rem;
-  margin-bottom: 25px;
-  color: var(--gold);
-  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-}
-
-.stat-number {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 15px;
-  color: var(--gold);
-  font-family: 'Playfair Display', serif;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.stat-text {
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-weight: 500;
-}
-
-/* Footer */
-footer {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.97), rgba(0, 0, 0, 0.92));
-  color: white;
-  padding: 90px 0 40px;
-  position: relative;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 50px;
-  margin-bottom: 50px;
-}
-
-.footer-section h4 {
-  color: var(--accent);
-  margin-bottom: 30px;
-  font-size: 1.6rem;
-  position: relative;
-  padding-bottom: 18px;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-}
-
-.footer-section h4::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 70px;
-  height: 4px;
-  background: var(--accent);
-  border-radius: 2px;
-}
-
-.contact-info p {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: flex-start;
-  font-size: 1.1rem;
-}
-
-.contact-info i {
-  color: var(--accent);
-  margin-right: 18px;
-  margin-top: 5px;
-  font-size: 1.3rem;
-  min-width: 24px;
-}
-
-.footer-links {
-  list-style: none;
-}
-
-.footer-links li {
-  margin-bottom: 16px;
-  position: relative;
-  padding-left: 25px;
-}
-
-.footer-links li::before {
-  content: '•';
-  color: var(--accent);
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 1.5rem;
-}
-
-.footer-links a {
-  color: #e0e0e0;
-  text-decoration: none;
-  transition: all 0.3s;
-  font-size: 1.1rem;
-  display: inline-block;
-}
-
-.footer-links a:hover {
-  color: var(--accent);
-  transform: translateX(5px);
-}
-
-.subscribe-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.subscribe-form input {
-  width: 100%;
-  padding: 16px 25px;
-  border-radius: 50px;
-  border: none;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  font-size: 1rem;
-  outline: none;
-  transition: all 0.3s;
-}
-
-.subscribe-form input:focus {
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 0 2px var(--accent);
-}
-
-.subscribe-form input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.footer-emblem {
-  margin-top: 25px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.footer-emblem img {
-  width: 80px;
-  opacity: 0.9;
-  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
-}
-
-.footer-emblem-text {
-  font-size: 0.9rem;
-  opacity: 0.8;
-  max-width: 200px;
-}
-
-.footer-bottom {
-  text-align: center;
-  padding-top: 40px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 1rem;
-  color: #aaa;
-}
-
-.footer-bottom p {
-  margin-bottom: 15px;
-  font-size: 1.1rem;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.7);
-  }
-  70% {
-    transform: scale(1.05);
-    box-shadow: 0 0 0 20px rgba(255, 152, 0, 0);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(255, 152, 0, 0);
-  }
-}
-
-.pulse {
-  animation: pulse 2.5s infinite;
-}
-
-/* Responsive */
-@media (max-width: 1200px) {
-  .hero-content h1 {
-    font-size: 3.5rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .hero-content h1 {
-    font-size: 3rem;
-  }
-  
-  .nav-links a {
-    padding: 20px 20px;
-  }
-  
-  .about-content {
-    grid-template-columns: 1fr;
-  }
-  
-  .about-image {
-    height: 400px;
-    order: -1;
-  }
-  
-  .hero-banner {
-    height: 80vh;
-    min-height: 600px;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-  
-  .hero-content p {
-    font-size: 1.3rem;
-  }
-  
-  .btn {
-    padding: 14px 30px;
-    font-size: 0.95rem;
-  }
-  
-  .section-title {
-    font-size: 2.3rem;
-  }
-  
-  .about-body {
-    padding: 30px;
-  }
-  
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .stats {
-    padding: 70px 0;
-    margin: 60px 0;
-  }
-}
-
-@media (max-width: 576px) {
-  .topbar-content {
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-  }
-  
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-    margin: 50px 0 40px;
-  }
-  
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .nav-links li {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .dropdown-menu {
-    position: relative;
-    width: 100%;
-    box-shadow: none;
-    border-radius: 0;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    display: none;
-  }
-  
-  .nav-links li:hover .dropdown-menu {
-    display: block;
-  }
-  
-  .nav-links a {
-    justify-content: center;
-  }
-  
-  .hero-content p {
-    font-size: 1.1rem;
-  }
-  
-  .about-image {
-    height: 300px;
-  }
-  
-  .footer-content {
-    gap: 40px;
-  }
-  
-  .stat-item {
-    padding: 20px;
-  }
-  
-  .stat-number {
-    font-size: 2.5rem;
-  }
-  
-  .stat-text {
-    font-size: 1rem;
-  }
-  
-  .footer-section h4 {
-    font-size: 1.4rem;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Mondu</title>
+  <link rel="stylesheet" href="/stile.css">
 </head>
 
 <body>
 
-<!-- Header -->
-<header>
-  <div class="topbar">
-    <div class="container topbar-content">
-      <div class="social-links">
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-      </div>
-      <div class="topbar-links">
-        <a href="#"><i class="fas fa-envelope"></i> Пайваст шудан</a>
-        <a href="#"><i class="fas fa-file-alt"></i> Намоишгоҳҳо</a>
-        <a href="#"><i class="fas fa-question-circle"></i> Саволҳо</a>
-        <a href="#"><i class="fas fa-globe"></i> Тоҷикӣ</a>
-      </div>
+  <header class="header">
+    <div class="logo">Mondu</div>
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#">Why Mondu</a>
+      <a href="#">Resources</a>
+      <a href="#">Contact us</a>
+    </nav>
+    <div class="buttons">
+      <a href="#" class="login">Login</a>
+      <a href="#" class="get-started">Get started</a>
     </div>
-  </div>
-  
-  <nav>
-    <div class="container">
-      <ul class="nav-links">
-        <li><a href="#"><i class="fas fa-home"></i> Асосӣ</a></li>
-        <li>
-          <a href="#"><i class="fas fa-info-circle"></i> Дар бораи мо <i class="fas fa-chevron-down"></i></a>
-          <ul class="dropdown-menu">
-            <li><a href="#"><i class="fas fa-landmark"></i> Таърих</a></li>
-            <li><a href="#"><i class="fas fa-star"></i> Арзишҳои асосӣ</a></li>
-            <li><a href="#"><i class="fas fa-eye"></i> Миссия ва дидгоҳ</a></li>
-            <li><a href="#"><i class="fas fa-users"></i> Маъмурияти парк</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#"><i class="fas fa-tree"></i> Флора ва фауна <i class="fas fa-chevron-down"></i></a>
-          <ul class="dropdown-menu">
-            <li><a href="#"><i class="fas fa-paw"></i> Ҳайвонот</a></li>
-            <li><a href="#"><i class="fas fa-leaf"></i> Наботот</a></li>
-            <li><a href="#"><i class="fas fa-feather"></i> Паррандагон</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#"><i class="fas fa-hiking"></i> Саёҳат <i class="fas fa-chevron-down"></i></a>
-          <ul class="dropdown-menu">
-            <li><a href="#"><i class="fas fa-map-marked-alt"></i> Роҳҳои сайёҳӣ</a></li>
-            <li><a href="#"><i class="fas fa-camera"></i> Фотосафари</a></li>
-            <li><a href="#"><i class="fas fa-calendar"></i> Фасли саёҳат</a></li>
-          </ul>
-        </li>
-        <li><a href="#"><i class="fas fa-graduation-cap"></i> Таҳқиқот</a></li>
-        <li><a href="#"><i class="fas fa-phone-alt"></i> Тамос</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
+  </header>
 
-<!-- Hero Banner -->
-<section class="hero-banner">
-  <div class="hero-overlay"></div>
-  <div class="hero-slider">
-    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');"></div>
-    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');"></div>
-    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1455218873509-8097305ee378?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');"></div>
-  </div>
-  
-  <div class="hero-content">
-    <h1>Мамнӯъгоҳи давлатии Дашти Ҷум</h1>
-    <p>Ҳифзгоҳи табиати нодири Тоҷикистон ва ганҷинаи биоразнообразии Осиёи Марказӣ</p>
-    <div class="hero-buttons">
-      <a href="#" class="btn pulse"><i class="fas fa-ticket-alt"></i> Ташриф овардан</a>
-      <a href="#" class="btn btn-outline"><i class="fas fa-book-open"></i> Маълумоти бештар</a>
-    </div>
-  </div>
-</section>
+  <section class="about">
+    <h1>About Mondu</h1>
+    <p>
+      Mondu is a financial technology company that provides enterprise-level cross-border payment solutions,
+      foreign exchange services, and banking solutions to businesses worldwide. With our advanced platform of
+      APIs, businesses of all sizes can easily accept payments and make payouts on a global scale. Mondu offers
+      a single platform for global payment acceptance and payouts, allowing businesses to connect and transact
+      seamlessly anywhere in the world.
+    </p>
+    <a href="#" class="read-more">Read More</a>
+  </section>
 
-<!-- Main Content -->
-<div class="main-content">
-  <div class="container">
-    <h2 class="section-title">Дар бораи мамнӯъгоҳ</h2>
-    
-    <div class="about">
-      <div class="about-header">
-        <h2>Мамнӯъгоҳи давлатии Дашти Ҷум</h2>
-        <p>Ҳифзгоҳи табиати нодири Тоҷикистон</p>
-      </div>
-      
-      <div class="about-body">
-        <div class="about-content">
-          <div class="about-text">
-            <h3>Таъсис ва мақсад</h3>
-            <p>Мамнӯъгоҳи Дашти Ҷум соли 1983 таъсис ёфтааст ва ҳадафи асосии он ҳифзи ҳайвоноти нодир ва муҳити табиии онҳо мебошад. Аз ҷумла, ҳифзи мархур (бузи винторогӣ) ва муфлони миёнаазиёӣ (гӯсфанди кӯҳии нодир) яке аз вазифаҳои муҳими ин мамнӯъгоҳ ба ҳисоб меравад. Ин ҳайвонот дар хатари нобудшавӣ қарор дошта, аҳамияти ҷаҳонӣ доранд.</p>
-            
-            <h3>Ҷойгиршавӣ ва шароити табиӣ</h3>
-            <p>Мамнӯъгоҳ дар ҷануби кишвар, дар ҳудуди ноҳияи Шамсиддин Шоҳини вилояти Хатлон ҷойгир аст. Мамнӯъгоҳ масоҳати тахминан 380 километри мураббаъ (38,000 гектар)-ро фаро мегирад. Баландии он аз 1300 то 2500 метр аз сатҳи баҳр мебошад. Минтақа дорои релефи кӯҳсор, дараҳо ва нишебии бӯҳронист, бо ҷангалҳои кӯҳӣ (асосан можевелник ё архар) ва растаниҳои гуногун пӯшонида шудааст.</p>
-          </div>
-          
-          <div class="about-image">
-            <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Мамнӯъгоҳи Дашти Ҷум">
-          </div>
-        </div>
-        
-        <div class="about-text">
-          <h3>Флора ва фауна</h3>
-          <p>Мамнӯъгоҳи Дашти Ҷум бо гуногунии биологӣ ва ҳифзи намудҳои нодир машҳур аст. Мархур (Capra falconeri) – як намуди нодири буз бо шохҳои винторанг, ки танҳо дар чанд кишвар, аз ҷумла Тоҷикистон, Афғонистон ва Покистон зиндагӣ мекунад. Муфлони миёнаазиёӣ – гӯсфанди кӯҳӣ бо шохҳои бузург ва зебо.</p>
-          <p>Инчунин дар ин минтақа зиёда аз 20 намуди паррандаҳои нодир ба қайд гирифта шудаанд, аз ҷумла: фолкони сакер (Saker falcon), уқоби сиёҳ (Cinereous vulture), мӯрчахӯрак (Himalayan snowcock), ибисбилл (Ibisbill), уқоби моҳӣ (Pallas’s fish eagle), лаклак ва дигарон.</p>
-          
-          <h3>Аҳамияти байналмилалӣ</h3>
-          <p>Мамнӯъгоҳи Дашти Ҷум дар рӯйхати UNESCO World Heritage Tentative List (номзад ба мероси ҷаҳонӣ) дохил шудааст ва аз ҷониби BirdLife International ҳамчун Минтақаи муҳими барои паррандаҳо (Important Bird Area – IBA) шинохта шудааст. Инчунин, мамнӯъгоҳ тибқи таснифоти IUCN ба Категорияи Ia (Мамнӯъгоҳи қатъии табиӣ) мансуб аст, ки баландтарин сатҳи ҳифзро дар бар мегирад.</p>
-        </div>
-        
-        <h3 style="color: var(--primary-dark); margin: 50px 0 30px; text-align: center; font-size: 2rem; font-weight: 700;">Хусусиятҳои асосӣ</h3>
-        
-        <div class="features">
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-mountain"></i>
-            </div>
-            <h4>Масоҳат</h4>
-            <p>380 км² (38,000 гектар)</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-paw"></i>
-            </div>
-            <h4>Намудҳои ҳайвонот</h4>
-            <p>Зиёда аз 120 намуд</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-feather-alt"></i>
-            </div>
-            <h4>Намудҳои паррандагон</h4>
-            <p>Зиёда аз 20 намуди нодир</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-tree"></i>
-            </div>
-            <h4>Намудҳои наботот</h4>
-            <p>Беш аз 500 намуд</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <h2 class="section-title">Галереяи тасвирҳо</h2>
-    
-    <div class="gallery">
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1505832018823-50331d70d237?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Landscape">
-        <div class="gallery-overlay">
-          <div class="gallery-info">
-            <h3>Манзараи кӯҳӣ</h3>
-            <p>Кӯҳҳои Помир дар тобистон</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Wildlife">
-        <div class="gallery-overlay">
-          <div class="gallery-info">
-            <h3>Мархур</h3>
-            <p>Бузи винторогии нодир</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Flora">
-        <div class="gallery-overlay">
-          <div class="gallery-info">
-            <h3>Гулҳои кӯҳӣ</h3>
-            <p>Набототи нодири кӯҳӣ</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1553284965-5dd8352ff1bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Birds">
-        <div class="gallery-overlay">
-          <div class="gallery-info">
-            <h3>Уқоби моҳӣ</h3>
-            <p>Паррандаи нодири обӣ</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="stats">
-      <div class="container">
-        <div class="stats-content">
-          <div class="stat-item">
-            <i class="fas fa-calendar-alt"></i>
-            <div class="stat-number">1983</div>
-            <div class="stat-text">Соли таъсис</div>
-          </div>
-          
-          <div class="stat-item">
-            <i class="fas fa-mountain"></i>
-            <div class="stat-number">380 км²</div>
-            <div class="stat-text">Масоҳат</div>
-          </div>
-          
-          <div class="stat-item">
-            <i class="fas fa-paw"></i>
-            <div class="stat-number">120+</div>
-            <div class="stat-text">Намудҳои ҳайвонот</div>
-          </div>
-          
-          <div class="stat-item">
-            <i class="fas fa-feather-alt"></i>
-            <div class="stat-number">20+</div>
-            <div class="stat-text">Намудҳои паррандагон</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  <section class="partners">
+    <img src="/Group 5.png" alt="Fiat Republic">
+    <img src="/Clear Junction Limited - png.png" alt="Clear Junction">
+    <img src="/ProvidusBank svg.png" alt="Providus Bank">
+    <img src="/Circle svg.png" alt="Circle">
+    <img src="/Group 6.png" alt="Freemarket Financial">
+  </section>
 
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Тамос бо мо</h4>
-        <div class="contact-info">
-          <p><i class="fas fa-map-marker-alt"></i> Вилояти Хатлон, ноҳияи Шамсиддин Шоҳин</p>
-          <p><i class="fas fa-phone"></i> +992 93 123 4567</p>
-          <p><i class="fas fa-envelope"></i> info@dashtijum.tj</p>
-          <p><i class="fas fa-clock"></i> 8:00 - 18:00, ҳафтаи 7 рӯза</p>
-        </div>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Пайвандҳои зуд</h4>
-        <ul class="footer-links">
-          <li><a href="#">Нархҳо ва қоидаҳо</a></li>
-          <li><a href="#">Роҳнамои саёҳат</a></li>
-          <li><a href="#">Борномаҳои сайёҳӣ</a></li>
-          <li><a href="#">Саволҳои зиёд такроршаванда</a></li>
-          <li><a href="#">Тавсияҳои бехатарӣ</a></li>
+  <section class="stats">
+    <div class="stat">
+      <h2>2,000+</h2>
+      <p>Clients globally</p>
+    </div>
+    <div class="stat">
+      <h2>190+</h2>
+      <p>Payout countries</p>
+    </div>
+    <div class="stat">
+      <h2>20+</h2>
+      <p>Exotic currencies</p>
+    </div>
+    <div class="stat">
+      <h2>£1b+</h2>
+      <p>Processed per annum</p>
+    </div>
+  </section>
+
+  <section class="extra-info">
+    <p>
+      Mondu has been catering to thousands of businesses globally since the introduction of our MVP in October 2018.
+      Every year, we process billions of dollars worth of payments and offer companies a range of solutions such as
+      payment processing, foreign exchange, and multi-currency accounts, while simultaneously assisting them in
+      cost-saving and hassle-free growth.
+    </p>
+  </section>
+
+  <section class="history">
+    <div class="image"><img src="/Rectangle 1.png" alt="History"></div>
+    <div class="text">
+      <h3>How Mondu came to be.</h3>
+      <p>
+        Say Goodbye to Late Payments and Long Processing Times – Our Streamlined Payment System Makes
+        Getting Paid Faster and Easier Than Ever Before.
+      </p>
+    </div>
+  </section>
+
+  <section class="investors">
+    <h3>Our Investors</h3>
+    <div class="investor-logos">
+      <img src="/Logo card.png" alt="Slack">
+      <img src="/Logo card (2).png" alt="Skatch">
+      <img src="/Logo card (3).png" alt="Marketing">
+      <img src="/Logo card (4).png" alt="Google">
+      <img src="/Logo card (5).png" alt="The Verge">
+      <img src="/Logo card (6).png" alt="TIME Ventures">
+      <img src="/Logo card (7).png" alt="Facebook">
+    </div>
+  </section>
+
+  <div class="newsletter">
+    <h3>Welcome to your new digital reality that will rock your world.</h3>
+    <p>Let us help you take your digital future to new heights and beyond. Use the form below to create your first
+      product today.</p>
+    <form>
+      <input type="email" placeholder="Enter your email">
+      <button>Create an account</button>
+    </form>
+  </div>
+
+  <footer style="background-color:#0f172a; color: #fff;">
+    <div class="footer-links">
+      <div>
+        <h4>Products</h4>
+        <ul>
+          <li>Global Account</li>
+          <li>Multi-Currency Wallet</li>
+          <li>Payment Links - Payouts</li>
+          <li>FX</li>
         </ul>
       </div>
-      
-      <div class="footer-section">
-        <h4>Пайвандҳои алоқаманд</h4>
-        <ul class="footer-links">
-          <li><a href="#">Вазорати ҳифзи атрофи зист</a></li>
-          <li><a href="#">Кумитаи сайёҳии Тоҷикистон</a></li>
-          <li><a href="#">UNESCO World Heritage</a></li>
-          <li><a href="#">BirdLife International</a></li>
-          <li><a href="#">IUCN</a></li>
+
+      <div>
+        <h4>Products</h4>
+        <ul>
+          <li>Wallet-to-wallet</li>
+          <li>Corporate Cards</li>
+          <li>Treasury Management</li>
+          <li>API</li>
         </ul>
       </div>
-      
-      <div class="footer-section">
-        <h4>Обуна шавед</h4>
-        <p>Барои гирифтани ахборот ва навҳо аз мо обуна шавед</p>
-        <form class="subscribe-form">
-          <input type="email" placeholder="Суроғаи электронӣ" required>
-          <button type="submit" class="btn">Обуна шудан</button>
-        </form>
-        
-        <div class="footer-emblem">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Emblem_of_Tajikistan.svg/200px-Emblem_of_Tajikistan.svg.png" alt="Emblem">
-          <div class="footer-emblem-text">Мамнӯъгоҳи давлатии Дашти Ҷум</div>
-        </div>
+
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li>Partners</li>
+          <li>Developers</li>
+          <li>Community</li>
+          <li>Apps</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li>FAQ</li>
+          <li>Privacy policy</li>
+        </ul>
       </div>
     </div>
-    
-    <div class="footer-bottom">
-      <p>© 2023 Мамнӯъгоҳи давлатии Дашти Ҷум. Ҳама ҳуқуқҳо ҳифз шудаанд.</p>
-      <p>Таҳиягар: Маркази иттилоотии ҳифзи табиати Тоҷикистон</p>
-    </div>
+  </footer>
+
+  <div style="display: flex; justify-content: space-between; background: #0f172a; padding: 20px; color: #fff;">
+    <img src="logo.svg" alt="">
+    <p>© 2023 Mondo. All Rights Reserved.</p>
+    <img src="/Social icons.png" alt="">
   </div>
-</footer>
 
-<script>
-// Hero Slider
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const slider = document.querySelector('.hero-slider');
-
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-}
-
-setInterval(nextSlide, 6000);
-
-// Animate elements on scroll
-document.addEventListener('DOMContentLoaded', function() {
-  const animatedElements = document.querySelectorAll('.feature-card, .gallery-item, .about-image, .stat-item');
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = 1;
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.15 });
-  
-  animatedElements.forEach(element => {
-    element.style.opacity = 0;
-    element.style.transform = 'translateY(40px)';
-    element.style.transition = 'opacity 0.8s, transform 0.8s';
-    observer.observe(element);
-  });
-  
-  // Pulse animation for CTA button
-  const ctaButton = document.querySelector('.pulse');
-  setInterval(() => {
-    ctaButton.classList.toggle('pulse');
-  }, 4500);
-  
-  // Smooth scrolling for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        window.scrollTo({
-          top: target.offsetTop - 80,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-  
-  // Form submission
-  const subscribeForm = document.querySelector('.subscribe-form');
-  if (subscribeForm) {
-    subscribeForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const email = this.querySelector('input[type="email"]').value;
-      alert(`Ташаккур барои обуна шудан! Мо ба суроғаи электронии шумо ${email} пайваст мешавем.`);
-      this.reset();
-    });
-  }
-});
-</script>
 </body>
+
 </html>
